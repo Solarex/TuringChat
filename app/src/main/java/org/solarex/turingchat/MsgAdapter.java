@@ -22,13 +22,12 @@ public class MsgAdapter extends BaseAdapter {
         mInflater = LayoutInflater.from(context);
         mMsgs = msgs;
         mLayoutMaps = new SparseArray<>();
-        /*
         mLayoutMaps.put(Msg.TYPE_COOK, R.layout.item_cook);
         mLayoutMaps.put(Msg.TYPE_ERROR, R.layout.item_error);
         mLayoutMaps.put(Msg.TYPE_LINK, R.layout.item_link);
         mLayoutMaps.put(Msg.TYPE_NEWS, R.layout.item_news);
         mLayoutMaps.put(Msg.TYPE_TEXT, R.layout.item_text);
-        */
+        mLayoutMaps.put(Msg.TYPE_INPUT, R.layout.item_input);
     }
     @Override
     public int getViewTypeCount() {
@@ -69,4 +68,12 @@ public class MsgAdapter extends BaseAdapter {
         return viewHolder.getConvertView();
     }
 
+    public void bindData(ArrayList<Msg> msgs){
+        this.mMsgs = msgs;
+        if (mMsgs != null && mMsgs.size() > 0){
+            this.notifyDataSetChanged();
+        } else {
+            this.notifyDataSetInvalidated();
+        }
+    }
 }

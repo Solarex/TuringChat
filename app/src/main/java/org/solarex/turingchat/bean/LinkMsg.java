@@ -1,13 +1,15 @@
 package org.solarex.turingchat.bean;
 
+import android.widget.TextView;
+
 import org.solarex.turingchat.ViewHolder;
 
 
 public class LinkMsg extends Msg {
     private String text = "";
-
     private String url = "";
     private int type = -1;
+    private TextView mTextView = null;
 
     public LinkMsg(int type, String text){
         this.type = type;

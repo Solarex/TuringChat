@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">TuringChat</string>
     <string name="action_settings">Settings</string>
+    <string name="main_et_edit_hint">type to chat with me, :)</string>
+    <string name="main_btn_send_text">Chat</string>
 </resources>
