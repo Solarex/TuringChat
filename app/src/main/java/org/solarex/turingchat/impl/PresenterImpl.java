@@ -2,6 +2,7 @@ package org.solarex.turingchat.impl;
 
 
 import org.solarex.turingchat.bean.Msg;
+import org.solarex.turingchat.utils.Logs;
 
 import java.util.ArrayList;
 
@@ -10,6 +11,8 @@ public class PresenterImpl extends BasePresenter implements ModelImpl.ModelSaveC
 
     ModelImpl mModelImpl;
     HttpFetchResult mHttpFetchResult;
+
+    private static final String TAG = "PresenterImpl";
 
     public PresenterImpl(){
         mMsgs = new ArrayList<>();
@@ -30,6 +33,7 @@ public class PresenterImpl extends BasePresenter implements ModelImpl.ModelSaveC
     @Override
     public void onSaveSuccess(ArrayList<Msg> mMsgs) {
         IView view = (IView)getView();
+        Logs.d(TAG, "onSaveSuccess | view = " + view);
         if (view != null){
             view.updateUI(mMsgs);
         }
@@ -37,13 +41,14 @@ public class PresenterImpl extends BasePresenter implements ModelImpl.ModelSaveC
 
     @Override
     public void sendMsg(String message) {
+        Logs.d(TAG, "sendMsg | msg = " + message);
         mModelImpl.saveMsg(message);
         mHttpFetchResult.doFetch(message);
     }
 
     @Override
     public void initMsg(String message){
-        mModelImpl.saveMsg(Msg.createFrom(Msg.TYPE_INPUT, message));
+        mModelImpl.saveMsg(Msg.createFrom(Msg.TYPE_TEXT, message));
     }
 
     @Override

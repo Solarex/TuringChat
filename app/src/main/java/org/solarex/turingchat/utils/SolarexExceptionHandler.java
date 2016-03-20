@@ -36,7 +36,7 @@ public class SolarexExceptionHandler implements Thread.UncaughtExceptionHandler 
         } catch (Exception e){
             Logs.d(TAG, "uncaughtException | exception = " + e);
         } finally {
-            CloseUtils.close(pw);
+            AppUtils.close(pw);
         }
         return;
     }

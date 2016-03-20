@@ -6,22 +6,16 @@ import org.solarex.turingchat.R;
 import org.solarex.turingchat.ViewHolder;
 import org.solarex.turingchat.utils.Logs;
 
-public class TextMsg extends Msg {
 
-    private String text = "";
+public class ErrorMsg extends Msg {
     private int type = -1;
-    private TextView mTvText = null;
+    private String text = "";
+    private TextView mTvError = null;
+    private static final String TAG = "ErrorMsg";
 
-    private static final String TAG = "TextMsg";
-
-    public TextMsg(int type, String message) {
+    public ErrorMsg(int type, String text){
         this.type = type;
-        this.text = message;
-    }
-
-    @Override
-    public int getType() {
-        return type;
+        this.text = text;
     }
 
     @Override
@@ -29,21 +23,27 @@ public class TextMsg extends Msg {
         //no need
     }
 
+
     @Override
-    public void fillView(ViewHolder viewHolder){
+    public void fillView(ViewHolder viewHolder) {
         Logs.d(TAG, "fillView | this = " + this + ",holder = " + viewHolder);
         if (viewHolder != null){
-            mTvText = (TextView)viewHolder.getView(R.id.item_text_tv);
-            if (mTvText != null){
-                mTvText.setText(text);
+            mTvError = (TextView)viewHolder.getView(R.id.item_error_tv);
+            if (mTvError != null){
+                mTvError.setText(text);
             }
         }
     }
 
     @Override
+    public int getType(){
+        return type;
+    }
+
+    @Override
     public String toString(){
         StringBuilder sb = new StringBuilder();
-        sb.append("TextMsg{type="+type+",text="+text+"}");
+        sb.append("ErrorMsg{type="+type+",text="+text+"}");
         return sb.toString();
     }
 }

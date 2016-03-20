@@ -17,6 +17,8 @@ import org.solarex.turingchat.utils.Logs;
 
 import java.util.ArrayList;
 
+import org.solarex.turingchat.R;
+
 
 public class MainActivity extends Activity implements IView, View.OnClickListener{
     private static final String TAG = "MainActivity";
@@ -38,6 +40,7 @@ public class MainActivity extends Activity implements IView, View.OnClickListene
         mListView = (ListView)findViewById(R.id.main_lv);
         mEdText = (EditText) findViewById(R.id.main_et_edit);
         mBtnSend = (Button) findViewById(R.id.main_btn_send);
+        mBtnSend.setOnClickListener(this);
     }
 
 
@@ -59,6 +62,7 @@ public class MainActivity extends Activity implements IView, View.OnClickListene
 
     @Override
     public void updateUI(final ArrayList<Msg> msgs) {
+        Logs.d(TAG, "updateUI | msgs = " + msgs);
         getWindow().getDecorView().post(new Runnable() {
             @Override
             public void run() {
@@ -78,8 +82,11 @@ public class MainActivity extends Activity implements IView, View.OnClickListene
         switch (v.getId()){
             case R.id.main_btn_send:
                 Editable editable = mEdText.getText();
+                Logs.d(TAG, "onClick | user input = " + editable);
                 if (!TextUtils.isEmpty(editable)){
                     mPresenter.sendMsg(editable.toString());
+                    mEdText.setText("");
+                    mEdText.requestFocus();
                 } else {
                     mPresenter.showInputError();
                 }

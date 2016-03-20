@@ -1,7 +1,7 @@
 package org.solarex.turingchat.impl;
 
 import org.solarex.turingchat.bean.Msg;
-import org.solarex.turingchat.utils.CloseUtils;
+import org.solarex.turingchat.utils.AppUtils;
 import org.solarex.turingchat.utils.JsonUtils;
 import org.solarex.turingchat.utils.Logs;
 
@@ -58,7 +58,7 @@ public class HttpFetchResult {
     }
 
     private static class FetchRunnable implements Runnable{
-        private static final Msg DEFAULT_MSG = Msg.createFrom(-1, "default_message");
+        private static final Msg DEFAULT_MSG = Msg.createFrom(Msg.TYPE_ERROR, "default_message");
         private String input = null;
         private FetchCacllback mCallback = null;
         public FetchRunnable(String userInput, FetchCacllback callback){
@@ -78,6 +78,7 @@ public class HttpFetchResult {
                 conn.connect();
 
                 int sc = conn.getResponseCode();
+                Logs.d(TAG, "run | status code = " + sc);
                 if (sc == 200){
                     StringBuilder sb = new StringBuilder();
                     is = conn.getInputStream();
@@ -86,7 +87,7 @@ public class HttpFetchResult {
                     while ((len = is.read(buffer)) != -1){
                         sb.append(new String(buffer, 0, len));
                     }
-
+                    Logs.d(TAG, "run | json = " + sb.toString());
                     Msg msg = JsonUtils.parse(sb.toString());
                     if (msg != null /**/){
                         mCallback.onFetchSuccess(msg);
@@ -99,7 +100,7 @@ public class HttpFetchResult {
                 Logs.d(TAG, "run | exception = " + e);
                 mCallback.onFetchFailure(DEFAULT_MSG);
             } finally {
-                CloseUtils.close(is);
+                AppUtils.close(is);
                 if (conn != null){
                     try {
                         conn.disconnect();
@@ -119,6 +120,7 @@ public class HttpFetchResult {
         }catch (UnsupportedEncodingException ex){
             Logs.d(TAG, "buildURL | ex = " + ex);
         }
+        Logs.d(TAG, "buildURL | url = " + sb.toString());
         return sb.toString();
     }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import org.solarex.turingchat.bean.Msg;
+import org.solarex.turingchat.utils.Logs;
 
 import java.util.ArrayList;
 
@@ -17,6 +18,8 @@ public class MsgAdapter extends BaseAdapter {
     private LayoutInflater mInflater = null;
     private ArrayList<Msg> mMsgs = null;
     private SparseArray<Integer> mLayoutMaps = null;
+
+    private static final String TAG = "MsgAdapter";
 
     public MsgAdapter(Context context, ArrayList<Msg> msgs){
         mInflater = LayoutInflater.from(context);
@@ -31,7 +34,8 @@ public class MsgAdapter extends BaseAdapter {
     }
     @Override
     public int getViewTypeCount() {
-        return Msg.MSG_TYPE_COUNT;
+        //return Msg.MSG_TYPE_COUNT;
+        return mLayoutMaps.size();
     }
 
     @Override
@@ -69,6 +73,7 @@ public class MsgAdapter extends BaseAdapter {
     }
 
     public void bindData(ArrayList<Msg> msgs){
+        Logs.d(TAG, "bindData | msgs = " + msgs);
         this.mMsgs = msgs;
         if (mMsgs != null && mMsgs.size() > 0){
             this.notifyDataSetChanged();

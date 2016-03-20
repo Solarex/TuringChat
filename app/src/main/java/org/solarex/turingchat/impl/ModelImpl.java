@@ -13,7 +13,7 @@ public class ModelImpl extends IModel {
 
     @Override
     public void saveMsg(String msg) {
-        this.mMsgs.add(Msg.createFrom(Msg.TYPE_TEXT, msg));
+        this.mMsgs.add(Msg.createFrom(Msg.TYPE_INPUT, msg));
         mSaveCallback.onSaveSuccess(mMsgs);
     }
 
