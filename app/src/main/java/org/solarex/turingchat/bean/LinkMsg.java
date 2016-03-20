@@ -1,6 +1,7 @@
 package org.solarex.turingchat.bean;
 
 import android.text.SpannableString;
+import android.text.method.LinkMovementMethod;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.TextView;
@@ -59,9 +60,11 @@ public class LinkMsg extends Msg {
                 mTvLink.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Logs.d(TAG, "onClick | url = " + url);
                         AppUtils.openUrl(SolarexApplication.getsInstance(), url);
                     }
                 });
+                mTvLink.setMovementMethod(new LinkMovementMethod());
             }
         }
         return;

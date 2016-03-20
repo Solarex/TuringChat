@@ -16,7 +16,7 @@ public class SolarexExceptionHandler implements Thread.UncaughtExceptionHandler 
     @Override
     public void uncaughtException(Thread thread, Throwable ex) {
         if (Environment.getExternalStorageState() != Environment.MEDIA_MOUNTED){
-            Logs.d(TAG, "uncaughtException | sdcar not ready");
+            Logs.d(TAG, "uncaughtException | sdcard not ready" + ",throwable = " + ex.getMessage());
             return;
         }
         String log_dir = Environment.getExternalStorageDirectory().getPath() + "/Solarex";

@@ -86,7 +86,7 @@ public class MainActivity extends Activity implements IView, View.OnClickListene
                 if (!TextUtils.isEmpty(editable)){
                     mPresenter.sendMsg(editable.toString());
                     mEdText.setText("");
-                    mEdText.requestFocus();
+                    //mEdText.requestFocus();
                 } else {
                     mPresenter.showInputError();
                 }
