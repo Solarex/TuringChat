@@ -1,10 +1,13 @@
 package org.solarex.turingchat.bean;
 
 
+import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.solarex.turingchat.ViewHolder;
+import org.solarex.turingchat.utils.AppConfig;
+import org.solarex.turingchat.utils.ImageLoader;
 import org.solarex.turingchat.utils.Logs;
 import org.solarex.turingchat.R;
 
@@ -66,7 +69,9 @@ public class Cook {
 
             mIvIcon = (ImageView)viewHolder.getView(R.id.item_cook_iv_icon);
             // load image, fix this later
-
+            if (mIvIcon != null && !TextUtils.isEmpty(icon)){
+                ImageLoader.getInstance(mIvIcon.getContext()).bindBitmap(icon, mIvIcon, AppConfig.IMAGE_WIDTH, AppConfig.IMAGE_HEIGHT);
+            }
             Article.OnItemClicked listener = new Article.OnItemClicked(detailUrl);
             mTvName.setOnClickListener(listener);
             mTvInfo.setOnClickListener(listener);

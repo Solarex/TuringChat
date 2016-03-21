@@ -42,7 +42,7 @@ public class HttpFetchResult {
             return new Thread(r, "SOLAREX-THREAD-" + atomicInteger.getAndIncrement());
         }
     };
-    private static ThreadPoolExecutor sExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, 10, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(), sThreadFactory, new ThreadPoolExecutor.DiscardOldestPolicy());
+    public static ThreadPoolExecutor sExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, 10, TimeUnit.SECONDS, new LinkedBlockingQueue<Runnable>(), sThreadFactory, new ThreadPoolExecutor.DiscardOldestPolicy());
 
     public FetchCacllback mFetchCallback;
     public HttpFetchResult(FetchCacllback cacllback){
