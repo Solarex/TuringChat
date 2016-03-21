@@ -64,6 +64,7 @@ public class ContainerListView extends ListView {
                 actionName = "MOVE";
                 break;
             default:
+                actionName = "" + action;
                 break;
         }
         return actionName;

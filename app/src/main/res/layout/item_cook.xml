@@ -55,11 +55,10 @@
         </LinearLayout>
     </RelativeLayout>
     -->
-    <view
-        class="org.solarex.turingchat.component.NestedListView"
+    <org.solarex.turingchat.component.NestedListView
         android:id="@+id/item_cook_lv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_alignParentBottom="true"
         android:layout_below="@+id/item_cook_tv_text"
         android:padding="10dp"/>

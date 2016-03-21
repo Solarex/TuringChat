@@ -9,11 +9,10 @@
         android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_alignParentTop="true"/>
-    <view
+    <org.solarex.turingchat.component.NestedListView
         android:id="@+id/item_news_lv"
-        class="org.solarex.turingchat.component.NestedListView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_alignParentBottom="true"
         android:padding="10dp"
         android:layout_below="@+id/item_news_tv_text" />

@@ -61,18 +61,35 @@ public class NestedListView extends ListView {
     }
 
     private boolean shouldChildHandle(MotionEvent event){
-        boolean ret = false;
+        boolean ret = true;
         View firstChild = getChildAt(getFirstVisiblePosition());
         View lastChild = getChildAt(getLastVisiblePosition());
 
+        /*
         if (event.getY() < firstChild.getTop() || event.getY() > lastChild.getBottom() ){
             ret = false;
         } else {
             ret = true;
         }
+        */
+        if (firstChild != null && firstChild.getTop() > event.getY()){
+            ret = false;
+        }
+
+        if (lastChild != null && lastChild.getTop() < event.getY()){
+            ret = false;
+        }
         Logs.d(TAG, "=====shouldChildHandle dump info begin=====");
-        Logs.d(TAG, "first_visible_child{top = " + firstChild.getTop() + ",bottom = " + firstChild.getBottom() + ",left = " + firstChild.getLeft() + ",right = " + firstChild.getRight() + "}");
-        Logs.d(TAG, "last_visible_child{top = " + lastChild.getTop() + ",bottom = " + lastChild.getBottom() + ",left = " + lastChild.getLeft() + ", right = " + lastChild.getRight() + "}");
+        if (firstChild != null){
+            Logs.d(TAG, "first_visible_child{top = " + firstChild.getTop() + ",bottom = " + firstChild.getBottom() + ",left = " + firstChild.getLeft() + ",right = " + firstChild.getRight() + "}");
+        } else {
+            Logs.d(TAG, "first_visible_child = null");
+        }
+        if (lastChild != null){
+            Logs.d(TAG, "last_visible_child{top = " + lastChild.getTop() + ",bottom = " + lastChild.getBottom() + ",left = " + lastChild.getLeft() + ", right = " + lastChild.getRight() + "}");
+        } else {
+            Logs.d(TAG, "last_visible_child = null");
+        }
         Logs.d(TAG, "event{X = " + event.getX() + ", Y = " + event.getY() + ",name = " + ContainerListView.getAction(event.getAction()) + "}");
         Logs.d(TAG, "should handle ret = " + ret);
         Logs.d(TAG, "=====shouldChildHandle dump info end=====");

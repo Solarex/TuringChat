@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFF68F">
-    <View
-        class="org.solarex.turingchat.component.ContainerListView"
+    <org.solarex.turingchat.component.ContainerListView
         android:id="@+id/main_lv"
         android:layout_width="match_parent"
         android:stackFromBottom="true"
