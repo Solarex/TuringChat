@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="true"
+    android:layout_below="@+id/item_cook_tv_text"
+    android:padding="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <ImageView
+        android:id="@+id/item_news_iv_icon"
+        android:layout_width="68dp"
+        android:layout_height="68dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:src="#ffff00"/>
+    <LinearLayout
+        android:paddingLeft="10dp"
+        android:layout_toRightOf="@+id/item_news_iv_icon"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/item_news_tv_source"
+            android:layout_width="wrap_content"
+            tools:text="网易新闻"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:singleLine="true"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <TextView
+            android:id="@+id/item_news_tv_article"
+            android:layout_width="wrap_content"
+            tools:text="工信部:今年将大幅提网速降手机流量费"
+            android:gravity="center"
+            android:textSize="18dp"
+            android:singleLine="true"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+    </LinearLayout>
+</RelativeLayout>

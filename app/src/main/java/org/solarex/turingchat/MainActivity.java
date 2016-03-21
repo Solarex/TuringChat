@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import org.solarex.turingchat.bean.Msg;
+import org.solarex.turingchat.component.ContainerListView;
 import org.solarex.turingchat.impl.IView;
 import org.solarex.turingchat.impl.PresenterImpl;
 import org.solarex.turingchat.utils.Logs;
@@ -23,7 +25,7 @@ import org.solarex.turingchat.R;
 public class MainActivity extends Activity implements IView, View.OnClickListener{
     private static final String TAG = "MainActivity";
     private PresenterImpl mPresenter = null;
-    private ListView mListView = null;
+    private ContainerListView mListView = null;
     private Button mBtnSend = null;
     private EditText mEdText = null;
     private MsgAdapter mAdapter = null;
@@ -37,7 +39,7 @@ public class MainActivity extends Activity implements IView, View.OnClickListene
     }
 
     private void initView() {
-        mListView = (ListView)findViewById(R.id.main_lv);
+        mListView = (ContainerListView)findViewById(R.id.main_lv);
         mEdText = (EditText) findViewById(R.id.main_et_edit);
         mBtnSend = (Button) findViewById(R.id.main_btn_send);
         mBtnSend.setOnClickListener(this);
@@ -100,5 +102,20 @@ public class MainActivity extends Activity implements IView, View.OnClickListene
     @Override
     public void notifyInputError(){
         Toast.makeText(this, "Input must not be empty!", Toast.LENGTH_LONG).show();
+    }
+
+    // log MotionEvent flow
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        boolean ret = super.dispatchTouchEvent(ev);
+        Logs.d(TAG, "dispatchTouchEvent | ev = " + ContainerListView.getAction(ev.getAction()) + ", ret = " + ret);
+        return ret;
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        boolean ret = super.onTouchEvent(event);
+        Logs.d(TAG, "onTouchEvent | ev = " + ContainerListView.getAction(event.getAction()) + ", ret = " + ret);
+        return ret;
     }
 }

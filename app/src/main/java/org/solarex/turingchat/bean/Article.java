@@ -1,6 +1,8 @@
 package org.solarex.turingchat.bean;
 
 
+import org.solarex.turingchat.ViewHolder;
+
 public class Article {
     private String article = "";
     private String source = "";
@@ -28,5 +30,10 @@ public class Article {
 
     public String getSource() {
         return source;
+    }
+
+    //fillview for self usage
+    public void fillView(ViewHolder viewHolder){
+
     }
 }
