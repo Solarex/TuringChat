@@ -2,9 +2,11 @@
 ===================
 
 ##涉及技术
++ MVP架构
 + CommonAdapter，ListView通用Adapter
 + ImageLoader，图片加载内存，磁盘双级缓存
 + NestedListView，ListView内嵌套ListView滑动冲突解决
++ CrashHandler 处理程序异常Crash
 
 ##screenshots
 

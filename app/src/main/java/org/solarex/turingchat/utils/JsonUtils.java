@@ -1,7 +1,6 @@
 package org.solarex.turingchat.utils;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 import org.solarex.turingchat.bean.Article;
 import org.solarex.turingchat.bean.ArticleMsg;
@@ -10,7 +9,6 @@ import org.solarex.turingchat.bean.CookMsg;
 import org.solarex.turingchat.bean.LinkMsg;
 import org.solarex.turingchat.bean.Msg;
 
-import java.net.CookieHandler;
 import java.util.ArrayList;
 
 

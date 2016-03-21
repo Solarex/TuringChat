@@ -5,9 +5,6 @@ import org.solarex.turingchat.utils.AppUtils;
 import org.solarex.turingchat.utils.JsonUtils;
 import org.solarex.turingchat.utils.Logs;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;

@@ -8,7 +8,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import org.solarex.turingchat.bean.Msg;
@@ -18,8 +17,6 @@ import org.solarex.turingchat.impl.PresenterImpl;
 import org.solarex.turingchat.utils.Logs;
 
 import java.util.ArrayList;
-
-import org.solarex.turingchat.R;
 
 
 public class MainActivity extends Activity implements IView, View.OnClickListener{

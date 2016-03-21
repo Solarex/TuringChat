@@ -2,7 +2,6 @@ package org.solarex.turingchat.component;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.nfc.Tag;
 import android.os.Build;
 import android.util.AttributeSet;
 import android.view.MotionEvent;

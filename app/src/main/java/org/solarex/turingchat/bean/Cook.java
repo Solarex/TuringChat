@@ -5,11 +5,11 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.solarex.turingchat.R;
 import org.solarex.turingchat.ViewHolder;
 import org.solarex.turingchat.utils.AppConfig;
 import org.solarex.turingchat.utils.ImageLoader;
 import org.solarex.turingchat.utils.Logs;
-import org.solarex.turingchat.R;
 
 public class Cook {
     public String name = "";

@@ -9,7 +9,6 @@ import android.widget.ListView;
 
 import org.solarex.turingchat.R;
 import org.solarex.turingchat.ViewHolder;
-import org.solarex.turingchat.bean.Article;
 
 import java.util.ArrayList;
 

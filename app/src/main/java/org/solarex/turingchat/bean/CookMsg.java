@@ -1,13 +1,11 @@
 package org.solarex.turingchat.bean;
 
-import android.content.Context;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import org.solarex.turingchat.R;
 import org.solarex.turingchat.ViewHolder;
 import org.solarex.turingchat.component.CookManager;
-import org.solarex.turingchat.component.NestedItemManager;
 import org.solarex.turingchat.component.NestedListView;
 import org.solarex.turingchat.utils.Logs;
 
