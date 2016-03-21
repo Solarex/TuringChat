@@ -59,7 +59,7 @@ public class CookMsg extends Msg {
 
     @Override
     public void fillView(ViewHolder viewHolder) {
-        Logs.d(TAG, "fillView | this = " + this.toString() + ",holder = " + viewHolder);
+        Logs.d(TAG, "fillView | holder = " + viewHolder + ",this = " + this.toString());
         if (viewHolder != null){
             mTvText = (TextView)viewHolder.getView(R.id.item_cook_tv_text);
             if (mTvText != null){

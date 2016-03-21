@@ -17,7 +17,7 @@ public abstract class NestedItemManager<T> {
 
     public NestedItemManager(ListView listView, ArrayList<T> datas){
         mListView = listView;
-        mContext = mListView.getContext();
+        mContext = mListView.getContext().getApplicationContext();
         mDatas = datas;
     }
 

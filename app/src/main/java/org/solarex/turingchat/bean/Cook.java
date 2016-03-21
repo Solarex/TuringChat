@@ -66,6 +66,11 @@ public class Cook {
 
             mIvIcon = (ImageView)viewHolder.getView(R.id.item_cook_iv_icon);
             // load image, fix this later
+
+            Article.OnItemClicked listener = new Article.OnItemClicked(detailUrl);
+            mTvName.setOnClickListener(listener);
+            mTvInfo.setOnClickListener(listener);
+            mIvIcon.setOnClickListener(listener);
         }
     }
 }
